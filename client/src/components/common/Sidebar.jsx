@@ -24,10 +24,10 @@ import { useAuth } from '../../context/AuthContext';
 
 export const NAVIGATION_ITEMS = [
   { id: 'dashboard', label: 'Executive Dashboard', icon: LayoutDashboard },
-  { id: 'finder', label: 'Global Company Finder', icon: Globe },
+  { id: 'finder', label: 'Discovery & People Hunter', icon: Globe, badge: 'TAO' },
   { id: 'intelligence', label: 'Company Intelligence', icon: Building2 },
   { id: 'prospects', label: 'Enterprise Prospects', icon: Award },
-  { id: 'contacts', label: 'Contact Discovery', icon: Users },
+  { id: 'contacts', label: 'Decision Makers (Contacts)', icon: Users },
   { id: 'agents', label: 'AI Research Agents', icon: Bot },
   { id: 'market', label: 'Market Intelligence', icon: TrendingUp },
   { id: 'pipeline', label: 'CRM Pipeline', icon: GitBranch },
@@ -79,6 +79,11 @@ export function Sidebar({ currentView, onNavigate }) {
               <div className="flex items-center gap-2.5">
                 <Icon className={`w-4 h-4 ${isActive ? 'text-amber-400' : 'text-slate-400'}`} />
                 <span className="truncate">{item.label}</span>
+                {item.badge && (
+                  <span className="px-1.5 py-0.2 text-[9px] font-extrabold bg-amber-500 text-slate-950 rounded">
+                    {item.badge}
+                  </span>
+                )}
               </div>
               {isActive && <ChevronRight className="w-3.5 h-3.5 text-amber-400/80" />}
             </button>

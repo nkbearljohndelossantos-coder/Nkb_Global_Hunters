@@ -28,9 +28,17 @@ import { AuditView } from './components/admin/AuditView';
 export function AppContent() {
   const { isAuthenticated, loading } = useAuth();
   const [currentView, setCurrentView] = useState('dashboard');
+  const [discoveryMode, setDiscoveryMode] = useState('companies');
   const [selectedCompanyId, setSelectedCompanyId] = useState(null);
   const [showManualModal, setShowManualModal] = useState(false);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
+
+  const navigateTo = (view, options = {}) => {
+    if (options && options.mode) {
+      setDiscoveryMode(options.mode);
+    }
+    setCurrentView(view);
+  };
 
   if (loading) {
     return (
@@ -47,10 +55,11 @@ export function AppContent() {
   const renderActiveView = () => {
     switch (currentView) {
       case 'dashboard':
-        return <DashboardView onNavigate={setCurrentView} />;
+        return <DashboardView onNavigate={navigateTo} />;
       case 'finder':
         return (
           <DiscoveryView
+            initialMode={discoveryMode}
             onSelectCompany={(id) => setSelectedCompanyId(id)}
             onOpenManualModal={() => setShowManualModal(true)}
           />
@@ -61,21 +70,21 @@ export function AppContent() {
             key={refreshTrigger}
             onSelectCompany={(id) => setSelectedCompanyId(id)}
             onOpenManualModal={() => setShowManualModal(true)}
-            onNavigate={setCurrentView}
+            onNavigate={navigateTo}
           />
         );
       case 'prospects':
         return (
           <ProspectsView
             onSelectCompany={(id) => setSelectedCompanyId(id)}
-            onNavigate={setCurrentView}
+            onNavigate={navigateTo}
           />
         );
       case 'contacts':
         return (
           <ContactsView
             onSelectCompany={(id) => setSelectedCompanyId(id)}
-            onNavigate={setCurrentView}
+            onNavigate={navigateTo}
           />
         );
       case 'agents':
