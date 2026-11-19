@@ -1,0 +1,14 @@
+{
+  "name": "nkb-global-hunter",
+  "version": "1.0.0",
+  "description": "NKB Global Hunter - Enterprise AI B2B Discovery & Sales Intelligence Platform",
+  "private": true,
+  "scripts": {
+    "install:all": "cd server && npm.cmd install && cd ../client && npm.cmd install",
+    "build:client": "cd client && npm.cmd run build",
+    "migrate:staging": "cd server && npm.cmd run migrate",
+    "test:backend": "cd server && npm.cmd test",
+    "start:server": "cd server && npm.cmd start",
+    "start:client": "cd client && npm.cmd run dev"
+  }
+}
