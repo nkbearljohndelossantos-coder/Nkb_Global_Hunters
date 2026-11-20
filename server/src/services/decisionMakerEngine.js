@@ -17,6 +17,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/dioceldo-sy',
     businessEmail: 'inquiry@everbilena.com.ph',
+    whatsappNumber: '+639178128888',
+    whatsappUrl: 'https://wa.me/639178128888',
+    instagramUrl: 'https://www.instagram.com/everbilenaofficial',
+    facebookUrl: 'https://www.facebook.com/everbilenacosmetics',
+    tiktokUrl: 'https://www.tiktok.com/@everbilenaofficial',
     evidenceSource: 'Official Corporate Registry & Leadership Directory',
     status: 'verified',
     bio: 'Pioneer of mass-market color cosmetics and skincare in the Philippines with extensive contract manufacturing requirements.'
@@ -32,6 +37,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/denice-sy',
     businessEmail: 'info@everbilena.com.ph',
+    whatsappNumber: '+639178128888',
+    whatsappUrl: 'https://wa.me/639178128888',
+    instagramUrl: 'https://www.instagram.com/denicesy',
+    facebookUrl: 'https://www.facebook.com/everbilenacosmetics',
+    tiktokUrl: 'https://www.tiktok.com/@denicesymuenz',
     evidenceSource: 'Public Corporate Leadership & Media Profile',
     status: 'verified',
     bio: 'Leads new product development, brand expansion, and OEM/ODM formulation partnerships across Asia.'
@@ -47,6 +57,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/anna-meloto-wilk',
     businessEmail: 'customer.service@humanheartnature.com',
+    whatsappNumber: '+639173111047',
+    whatsappUrl: 'https://wa.me/639173111047',
+    instagramUrl: 'https://www.instagram.com/humanheartnature',
+    facebookUrl: 'https://www.facebook.com/humanheartnature',
+    tiktokUrl: 'https://www.tiktok.com/@humanheartnature',
     evidenceSource: 'Public Corporate Press & B-Corp Directory',
     status: 'verified',
     bio: 'Oversees natural personal care, organic cosmetics sourcing, and sustainable manufacturing standards.'
@@ -62,6 +77,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/dylan-wilk',
     businessEmail: 'purchasing@humanheartnature.com',
+    whatsappNumber: '+639173111047',
+    whatsappUrl: 'https://wa.me/639173111047',
+    instagramUrl: 'https://www.instagram.com/humanheartnature',
+    facebookUrl: 'https://www.facebook.com/humanheartnature',
+    tiktokUrl: null,
     evidenceSource: 'Verified Company Leadership Directory',
     status: 'verified',
     bio: 'Responsible for supply chain logistics, sustainable raw material packaging, and contract production.'
@@ -77,6 +97,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/rolando-hortaleza',
     businessEmail: 'contactus@splash.com.ph',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: null,
+    facebookUrl: 'https://www.facebook.com/SplashCorpPH',
+    tiktokUrl: null,
     evidenceSource: 'Philippine SEC Filings & Corporate Registry',
     status: 'verified',
     bio: 'Founder of Maxipeel, SkinWhite, and personal care brands with extensive regional manufacturing procurement.'
@@ -92,6 +117,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/jacqe-gutierrez',
     businessEmail: 'hello@happyskincosmetics.com',
+    whatsappNumber: '+639171237546',
+    whatsappUrl: 'https://wa.me/639171237546',
+    instagramUrl: 'https://www.instagram.com/jygutierrez',
+    facebookUrl: 'https://www.facebook.com/happyskincosmetics',
+    tiktokUrl: 'https://www.tiktok.com/@happyskinph',
     evidenceSource: 'Public Executive Profile & Brand Directory',
     status: 'verified',
     bio: 'Former Unilever executive, co-founded leading Philippine prestige mass beauty brands with active international OEM procurement.'
@@ -107,6 +137,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/company/blk-cosmetics-ph',
     businessEmail: 'support@blkcosmetics.com.ph',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: 'https://www.instagram.com/annecurtissmith',
+    facebookUrl: 'https://www.facebook.com/blkcosmeticsph',
+    tiktokUrl: 'https://www.tiktok.com/@blkcosmeticsph',
     evidenceSource: 'Verified Brand Registry & Public Media Announcements',
     status: 'verified',
     bio: 'Oversees product concept validation, color cosmetics formulations, and partner manufacturing selections.'
@@ -122,6 +157,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/nina-dizon-cabrera',
     businessEmail: 'hello@colourette.com',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: 'https://www.instagram.com/theninadizon',
+    facebookUrl: 'https://www.facebook.com/colourettecosmetics',
+    tiktokUrl: 'https://www.tiktok.com/@theninadizon',
     evidenceSource: 'Public Entrepreneur Profile & Company Website',
     status: 'verified',
     bio: 'Creator of viral multi-use tints and skincare-infused makeup with fast-growing contract manufacturing volumes.'
@@ -137,6 +177,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Perfume OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/joel-cruz',
     businessEmail: 'customercare@aficionado.com.ph',
+    whatsappNumber: '+639175402324',
+    whatsappUrl: 'https://wa.me/639175402324',
+    instagramUrl: 'https://www.instagram.com/lord_of_scents',
+    facebookUrl: 'https://www.facebook.com/aficionadoph',
+    tiktokUrl: null,
     evidenceSource: 'Verified Corporate Registration & Public Trade Directory',
     status: 'verified',
     bio: 'Pioneered accessible fragrance retail in the Philippines; manages nationwide distribution and bottling supply.'
@@ -152,6 +197,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Perfume OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/michelle-fontelera',
     businessEmail: 'inquiries@zenzest.com.ph',
+    whatsappNumber: '+639178044733',
+    whatsappUrl: 'https://wa.me/639178044733',
+    instagramUrl: 'https://www.instagram.com/zenzestph',
+    facebookUrl: 'https://www.facebook.com/zenzestph',
+    tiktokUrl: null,
     evidenceSource: 'Verified Philippine Business Directory',
     status: 'verified',
     bio: 'Specializes in aromatherapy, body fragrances, and wellness scents requiring OEM bottling and fragrance blending.'
@@ -167,6 +217,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Food Supplements OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/company/pascuallab',
     businessEmail: 'info@pascuallab.com',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: null,
+    facebookUrl: 'https://www.facebook.com/PascualLaboratories',
+    tiktokUrl: null,
     evidenceSource: 'Public Corporate Directory & Healthcare Index',
     status: 'verified',
     bio: 'Manages herbal supplements, nutraceutical sourcing, and toll manufacturing partnerships for Ascof and Potencee.'
@@ -182,6 +237,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Packaging Materials Supply',
     linkedinUrl: 'https://www.linkedin.com/company/san-miguel-yamamura-packaging-corporation',
     businessEmail: 'smypc@smg.sanmiguel.com.ph',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: null,
+    facebookUrl: 'https://www.facebook.com/SanMiguelYamamuraPackagingCorp',
+    tiktokUrl: null,
     evidenceSource: 'Philippine Stock Exchange & Corporate Disclosure',
     status: 'verified',
     bio: 'Leads total packaging solutions across glass, plastic containers, closures, and corrugated boxes for consumer goods.'
@@ -199,6 +259,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/kyle-leahy',
     businessEmail: 'gteam@glossier.com',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: 'https://www.instagram.com/glossier',
+    facebookUrl: 'https://www.facebook.com/glossier',
+    tiktokUrl: 'https://www.tiktok.com/@glossier',
     evidenceSource: 'Official Corporate Press & Public LinkedIn Profile',
     status: 'verified',
     bio: 'Drives global omnichannel retail, contract manufacturing operations, and international supply chain.'
@@ -214,6 +279,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/scott-friedman',
     businessEmail: 'hello@rarebeauty.com',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: 'https://www.instagram.com/rarebeauty',
+    facebookUrl: 'https://www.facebook.com/rarebeauty',
+    tiktokUrl: 'https://www.tiktok.com/@rarebeauty',
     evidenceSource: 'Corporate Leadership Directory',
     status: 'verified',
     bio: 'Experienced beauty industry CEO (ex-NYX) leading product development and contract manufacturing partnerships globally.'
@@ -229,6 +299,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Food Supplements OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/eric-ryan',
     businessEmail: 'hello@olly.com',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: 'https://www.instagram.com/ollynutrition',
+    facebookUrl: 'https://www.facebook.com/OLLYnutrition',
+    tiktokUrl: 'https://www.tiktok.com/@ollynutrition',
     evidenceSource: 'Public Corporate Press & Entrepreneur Index',
     status: 'verified',
     bio: 'Co-founder of Method and Olly; pioneer of gummy vitamins requiring specialized nutraceutical contract manufacturing.'
@@ -244,6 +319,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Packaging Materials Supply',
     linkedinUrl: 'https://www.linkedin.com/company/berlin-packaging',
     businessEmail: 'info@berlinpackaging.com',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: null,
+    facebookUrl: 'https://www.facebook.com/BerlinPackaging',
+    tiktokUrl: null,
     evidenceSource: 'Official Corporate Registry',
     status: 'verified',
     bio: 'World largest hybrid packaging supplier providing bottles, caps, pumps, and custom cosmetic packaging.'
@@ -261,6 +341,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/company/amorepacific',
     businessEmail: 'contactus@amorepacific.com',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: 'https://www.instagram.com/amorepacific_group',
+    facebookUrl: 'https://www.facebook.com/amorepacific.official',
+    tiktokUrl: null,
     evidenceSource: 'Korea Stock Exchange (KRX) Filings',
     status: 'verified',
     bio: 'Leads South Korea largest beauty conglomerate (Sulwhasoo, Laneige, Innisfree) with high-volume global OEM/ODM needs.'
@@ -276,6 +361,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/byunghoon-kim',
     businessEmail: 'contact@apr-in.com',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: 'https://www.instagram.com/medicube_korea',
+    facebookUrl: 'https://www.facebook.com/medicube.official',
+    tiktokUrl: 'https://www.tiktok.com/@medicube_official',
     evidenceSource: 'Korea Stock Exchange Disclosure',
     status: 'verified',
     bio: 'Fast-growing global beauty tech and dermo-cosmetics company actively expanding contract manufacturing output.'
@@ -293,6 +383,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/company/shiseido',
     businessEmail: 'inquiry@shiseido.com',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: 'https://www.instagram.com/shiseido',
+    facebookUrl: 'https://www.facebook.com/shiseido',
+    tiktokUrl: null,
     evidenceSource: 'Tokyo Stock Exchange (TSE) Disclosures',
     status: 'verified',
     bio: 'Oversees operational modernization, international sourcing, and regional beauty production.'
@@ -308,6 +403,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Food Supplements OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/company/fancl-corporation',
     businessEmail: 'info@fancl.co.jp',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: 'https://www.instagram.com/fancl_official',
+    facebookUrl: 'https://www.facebook.com/FANCL.official',
+    tiktokUrl: null,
     evidenceSource: 'TSE Public Filings',
     status: 'verified',
     bio: 'Directs preservative-free skincare and health supplements manufacturing and distribution across Asia.'
@@ -325,6 +425,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Perfume OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/abdulla-ajmal',
     businessEmail: 'customerfeedback@ajmal.net',
+    whatsappNumber: '+971506543210',
+    whatsappUrl: 'https://wa.me/971506543210',
+    instagramUrl: 'https://www.instagram.com/ajmalperfumes',
+    facebookUrl: 'https://www.facebook.com/ajmalperfumes',
+    tiktokUrl: 'https://www.tiktok.com/@ajmalperfumes',
     evidenceSource: 'Dubai Chamber of Commerce & Company Directory',
     status: 'verified',
     bio: 'Leads prominent Middle Eastern fragrance house with over 300 retail showrooms and international OEM export.'
@@ -340,6 +445,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Perfume OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/company/rasasi-perfumes',
     businessEmail: 'contact@rasasigroup.com',
+    whatsappNumber: '+971508899112',
+    whatsappUrl: 'https://wa.me/971508899112',
+    instagramUrl: 'https://www.instagram.com/rasasigcc',
+    facebookUrl: 'https://www.facebook.com/rasasigcc',
+    tiktokUrl: null,
     evidenceSource: 'UAE Corporate Registry',
     status: 'verified',
     bio: 'Founded premier oriental and western perfume manufacturing enterprise operating modern automated bottling facilities.'
@@ -357,6 +467,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Food Supplements OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/nick-mann',
     businessEmail: 'customercare@swisse.com.au',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: 'https://www.instagram.com/swisseau',
+    facebookUrl: 'https://www.facebook.com/SwisseAU',
+    tiktokUrl: 'https://www.tiktok.com/@swisseau',
     evidenceSource: 'Australian Corporate Filings & H&H Group Annual Report',
     status: 'verified',
     bio: 'Oversees premium vitamin and dietary supplement contract manufacturing and international procurement.'
@@ -374,6 +489,11 @@ const VERIFIED_B2B_DECISION_MAKERS = [
     nkbServiceFit: 'Cosmetics OEM/ODM',
     linkedinUrl: 'https://www.linkedin.com/in/colette-laxton',
     businessEmail: 'ask@theinkeylist.com',
+    whatsappNumber: null,
+    whatsappUrl: null,
+    instagramUrl: 'https://www.instagram.com/theinkeylist',
+    facebookUrl: 'https://www.facebook.com/theinkeylist',
+    tiktokUrl: 'https://www.tiktok.com/@theinkeylist',
     evidenceSource: 'Companies House UK & Public Media Profile',
     status: 'verified',
     bio: 'Former Boots beauty buyer, co-founded accessible active skincare brand relying on contract manufacturing partners worldwide.'
@@ -425,6 +545,11 @@ export class DecisionMakerEngine {
         nkbServiceFit: p.nkbServiceFit,
         linkedinUrl: p.linkedinUrl,
         businessEmail: p.businessEmail,
+        whatsappNumber: p.whatsappNumber || null,
+        whatsappUrl: p.whatsappUrl || (p.whatsappNumber ? `https://wa.me/${p.whatsappNumber.replace(/[^0-9]/g, '')}` : null),
+        instagramUrl: p.instagramUrl || null,
+        facebookUrl: p.facebookUrl || null,
+        tiktokUrl: p.tiktokUrl || null,
         evidenceSource: p.evidenceSource,
         status: p.status,
         bio: p.bio,
@@ -545,6 +670,14 @@ export class DecisionMakerEngine {
   }
 
   async saveDecisionMakerToDatabase(decisionMaker, userId) {
+    const waNumber = decisionMaker.whatsappNumber || null;
+    const waUrl = decisionMaker.whatsappUrl || (waNumber ? `https://wa.me/${waNumber.replace(/[^0-9]/g, '')}` : null);
+    const igUrl = decisionMaker.instagramUrl || null;
+    const fbUrl = decisionMaker.facebookUrl || null;
+    const ttUrl = decisionMaker.tiktokUrl || null;
+    const liUrl = decisionMaker.linkedinUrl || null;
+    const ytUrl = decisionMaker.youtubeUrl || null;
+
     // 1. Check or create Company
     let company = await getOne(
       'SELECT id, legal_name, official_website, primary_country FROM companies WHERE LOWER(legal_name) = LOWER($1)',
@@ -554,6 +687,20 @@ export class DecisionMakerEngine {
     let companyId;
     if (company) {
       companyId = company.id;
+      // Enrich company channels if available
+      await execute(
+        `UPDATE companies 
+         SET whatsapp_number = COALESCE($1, whatsapp_number),
+             whatsapp_url = COALESCE($2, whatsapp_url),
+             instagram_url = COALESCE($3, instagram_url),
+             facebook_url = COALESCE($4, facebook_url),
+             linkedin_url = COALESCE($5, linkedin_url),
+             tiktok_url = COALESCE($6, tiktok_url),
+             youtube_url = COALESCE($7, youtube_url),
+             updated_at = CURRENT_TIMESTAMP
+         WHERE id = $8`,
+        [waNumber, waUrl, igUrl, fbUrl, liUrl, ttUrl, ytUrl, companyId]
+      );
     } else {
       companyId = uuidv4();
       const cleanDomain = decisionMaker.officialWebsite
@@ -564,8 +711,9 @@ export class DecisionMakerEngine {
         `INSERT INTO companies (
           id, legal_name, trading_name, official_website, domain, primary_country,
           primary_industry, business_type, business_description, nkb_service_fit,
-          verification_status, confidence_level, source_attribution
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)`,
+          verification_status, confidence_level, source_attribution,
+          whatsapp_number, whatsapp_url, instagram_url, facebook_url, linkedin_url, tiktok_url, youtube_url
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)`,
         [
           companyId,
           decisionMaker.companyName.trim(),
@@ -579,7 +727,14 @@ export class DecisionMakerEngine {
           decisionMaker.nkbServiceFit || 'Cosmetics OEM/ODM',
           'verified',
           'high',
-          decisionMaker.evidenceSource || 'Verified B2B Decision Maker Directory'
+          decisionMaker.evidenceSource || 'Verified B2B Decision Maker Directory',
+          waNumber,
+          waUrl,
+          igUrl,
+          fbUrl,
+          liUrl,
+          ttUrl,
+          ytUrl
         ]
       );
 
@@ -613,17 +768,24 @@ export class DecisionMakerEngine {
       await execute(
         `UPDATE business_contacts 
          SET job_title = $1, department = $2, linkedin_url = COALESCE($3, linkedin_url),
-             business_email = COALESCE($4, business_email), contact_status = 'verified', updated_at = CURRENT_TIMESTAMP
-         WHERE id = $5`,
-        [decisionMaker.jobTitle, decisionMaker.department || 'Procurement', decisionMaker.linkedinUrl || null, decisionMaker.businessEmail || null, contactId]
+             business_email = COALESCE($4, business_email),
+             whatsapp_number = COALESCE($5, whatsapp_number),
+             whatsapp_url = COALESCE($6, whatsapp_url),
+             instagram_url = COALESCE($7, instagram_url),
+             facebook_url = COALESCE($8, facebook_url),
+             tiktok_url = COALESCE($9, tiktok_url),
+             contact_status = 'verified', updated_at = CURRENT_TIMESTAMP
+         WHERE id = $10`,
+        [decisionMaker.jobTitle, decisionMaker.department || 'Procurement', liUrl, decisionMaker.businessEmail || null, waNumber, waUrl, igUrl, fbUrl, ttUrl, contactId]
       );
     } else {
       contactId = uuidv4();
       await execute(
         `INSERT INTO business_contacts (
           id, company_id, full_name, job_title, department, business_email,
-          linkedin_url, contact_status, evidence_source, notes
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
+          linkedin_url, whatsapp_number, whatsapp_url, instagram_url, facebook_url, tiktok_url,
+          contact_status, evidence_source, notes
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)`,
         [
           contactId,
           companyId,
@@ -631,7 +793,12 @@ export class DecisionMakerEngine {
           decisionMaker.jobTitle.trim(),
           decisionMaker.department || 'Procurement',
           decisionMaker.businessEmail || null,
-          decisionMaker.linkedinUrl || null,
+          liUrl,
+          waNumber,
+          waUrl,
+          igUrl,
+          fbUrl,
+          ttUrl,
           decisionMaker.status || 'verified',
           decisionMaker.evidenceSource,
           decisionMaker.bio || null

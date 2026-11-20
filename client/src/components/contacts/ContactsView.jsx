@@ -137,7 +137,20 @@ export function ContactsView({ onSelectCompany, onNavigate }) {
                       <span className="text-[11px] text-slate-500">{c.primary_country} • {c.primary_industry}</span>
                     </td>
                     <td className="py-3 px-4">
-                      <div className="space-y-1">
+                      <div className="space-y-1.5">
+                        {(c.whatsapp_url || c.whatsapp_number) && (
+                          <a
+                            href={c.whatsapp_url || `https://wa.me/${c.whatsapp_number.replace(/[^0-9]/g, '')}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-[11px] font-bold shadow-xs transition-colors"
+                            title="Chat on WhatsApp"
+                          >
+                            <Phone className="w-3 h-3" />
+                            <span>WhatsApp: {c.whatsapp_number || 'Chat'}</span>
+                          </a>
+                        )}
+
                         {c.business_email ? (
                           <a href={`mailto:${c.business_email}`} className="text-amber-700 hover:underline flex items-center gap-1 font-mono text-[11px]">
                             <Mail className="w-3 h-3 text-slate-400" />
@@ -147,13 +160,36 @@ export function ContactsView({ onSelectCompany, onNavigate }) {
                           <span className="text-slate-400 italic text-[11px] block">No direct email</span>
                         )}
 
-                        {c.linkedin_url && (
-                          <a href={c.linkedin_url} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline flex items-center gap-1 text-[11px]">
-                            <LinkIcon className="w-3 h-3" />
-                            <span>Public Profile</span>
-                            <ExternalLink className="w-2.5 h-2.5" />
-                          </a>
-                        )}
+                        <div className="flex flex-wrap items-center gap-2 pt-0.5">
+                          {c.linkedin_url && (
+                            <a href={c.linkedin_url} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline flex items-center gap-1 text-[11px]">
+                              <LinkIcon className="w-3 h-3" />
+                              <span>LinkedIn</span>
+                              <ExternalLink className="w-2.5 h-2.5" />
+                            </a>
+                          )}
+
+                          {c.instagram_url && (
+                            <a href={c.instagram_url} target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:underline flex items-center gap-1 text-[11px]">
+                              <span>Instagram</span>
+                              <ExternalLink className="w-2.5 h-2.5" />
+                            </a>
+                          )}
+
+                          {c.facebook_url && (
+                            <a href={c.facebook_url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-1 text-[11px]">
+                              <span>Facebook</span>
+                              <ExternalLink className="w-2.5 h-2.5" />
+                            </a>
+                          )}
+
+                          {c.tiktok_url && (
+                            <a href={c.tiktok_url} target="_blank" rel="noopener noreferrer" className="text-slate-800 hover:underline flex items-center gap-1 text-[11px]">
+                              <span>TikTok</span>
+                              <ExternalLink className="w-2.5 h-2.5" />
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </td>
                     <td className="py-3 px-4">

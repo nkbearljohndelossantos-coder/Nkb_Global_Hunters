@@ -97,8 +97,9 @@ export class DiscoveryEngine {
       `INSERT INTO companies (
         id, legal_name, trading_name, official_website, domain, primary_country, primary_city,
         headquarters_address, primary_industry, business_type, business_description, products_summary,
-        nkb_service_fit, verification_status, confidence_level, source_attribution
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)`,
+        nkb_service_fit, verification_status, confidence_level, source_attribution,
+        whatsapp_number, whatsapp_url, instagram_url, facebook_url, linkedin_url, tiktok_url, youtube_url
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23)`,
       [
         companyId,
         item.legalName.trim(),
@@ -115,7 +116,14 @@ export class DiscoveryEngine {
         item.nkbServiceFit || 'Cosmetics OEM/ODM',
         'unverified',
         item.confidenceLevel || 'medium',
-        item.sourceAttribution
+        item.sourceAttribution,
+        item.whatsappNumber || null,
+        item.whatsappUrl || null,
+        item.instagramUrl || null,
+        item.facebookUrl || null,
+        item.linkedinUrl || null,
+        item.tiktokUrl || null,
+        item.youtubeUrl || null
       ]
     );
 

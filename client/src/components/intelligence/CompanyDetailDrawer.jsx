@@ -15,7 +15,10 @@ import {
   PlusCircle,
   Globe,
   MapPin,
-  Briefcase
+  Briefcase,
+  Phone,
+  MessageCircle,
+  Link as LinkIcon
 } from 'lucide-react';
 import { apiRequest } from '../../services/api';
 import { TierBadge, VerificationBadge, ContactStatusBadge, StageBadge } from '../common/Badge';
@@ -26,6 +29,7 @@ export function CompanyDetailDrawer({ companyId, onClose, onRefreshList, onNavig
   const [activeTab, setActiveTab] = useState('overview'); // 'overview', 'qualification', 'contacts', 'agents', 'proposals', 'crm'
   const [agentRunning, setAgentRunning] = useState(false);
   const [statusUpdating, setStatusUpdating] = useState(false);
+  const [inspectingChannels, setInspectingChannels] = useState(false);
 
   // New Contact Form State
   const [showAddContact, setShowAddContact] = useState(false);
@@ -94,6 +98,23 @@ export function CompanyDetailDrawer({ companyId, onClose, onRefreshList, onNavig
       alert(`Agent execution failed: ${err.message}`);
     } finally {
       setAgentRunning(false);
+    }
+  };
+
+  const handleInspectChannels = async () => {
+    setInspectingChannels(true);
+    try {
+      const res = await apiRequest(`/companies/${companyId}/inspect-channels`, {
+        method: 'POST'
+      });
+      await fetchDetail();
+      if (onRefreshList) onRefreshList();
+      const waFound = res.inspection?.whatsappUrl || res.inspection?.whatsappNumber;
+      alert(`Website Channel Scan Complete!\n${waFound ? `✅ WhatsApp detected: ${waFound}` : 'ℹ️ No WhatsApp link detected on homepage'}\nEmails: ${res.inspection?.publicEmails?.length || 0}`);
+    } catch (err) {
+      alert(`Channel inspection failed: ${err.message}`);
+    } finally {
+      setInspectingChannels(false);
     }
   };
 
@@ -217,6 +238,121 @@ export function CompanyDetailDrawer({ companyId, onClose, onRefreshList, onNavig
               {/* TAB 1: OVERVIEW */}
               {activeTab === 'overview' && (
                 <div className="space-y-6">
+                  {/* Verified Communication & Social Channels Card */}
+                  <div className="bg-gradient-to-br from-slate-900 to-indigo-950 text-white p-5 rounded-xl border border-indigo-900/60 shadow-sm space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <MessageCircle className="w-4 h-4 text-emerald-400" />
+                          <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+                            Direct Communication & Social Media Channels
+                          </h4>
+                        </div>
+                        <p className="text-[11px] text-indigo-200 mt-0.5">
+                          Verified WhatsApp hotline at active social profiles ng kumpanya para sa mabilisang B2B outreach.
+                        </p>
+                      </div>
+
+                      {c?.official_website && (
+                        <button
+                          onClick={handleInspectChannels}
+                          disabled={inspectingChannels}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-800/80 hover:bg-indigo-700 text-indigo-100 rounded-lg text-xs font-medium transition-colors border border-indigo-700/60 self-start sm:self-center disabled:opacity-50"
+                        >
+                          <RefreshCw className={`w-3.5 h-3.5 ${inspectingChannels ? 'animate-spin text-amber-400' : 'text-indigo-300'}`} />
+                          <span>{inspectingChannels ? 'Scanning Website...' : 'Scan Website for Channels'}</span>
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2.5 pt-1">
+                      {/* WhatsApp Channel */}
+                      {(c?.whatsapp_url || c?.whatsapp_number) ? (
+                        <a
+                          href={c?.whatsapp_url || `https://wa.me/${c?.whatsapp_number.replace(/[^0-9]/g, '')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold transition-all shadow-md group"
+                        >
+                          <Phone className="w-3.5 h-3.5" />
+                          <span>Chat on WhatsApp: {c?.whatsapp_number || 'Direct Chat'}</span>
+                          <ExternalLink className="w-3 h-3 opacity-75 group-hover:opacity-100" />
+                        </a>
+                      ) : (
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-800/80 border border-slate-700 rounded-lg text-xs text-slate-400">
+                          <Phone className="w-3.5 h-3.5 text-slate-500" />
+                          <span>WhatsApp: Not yet detected</span>
+                        </div>
+                      )}
+
+                      {/* Instagram */}
+                      {c?.instagram_url && (
+                        <a
+                          href={c?.instagram_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white rounded-lg text-xs font-semibold transition-opacity"
+                        >
+                          <span>Instagram</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+
+                      {/* Facebook */}
+                      {c?.facebook_url && (
+                        <a
+                          href={c?.facebook_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-semibold transition-colors"
+                        >
+                          <span>Facebook</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+
+                      {/* LinkedIn */}
+                      {c?.linkedin_url && (
+                        <a
+                          href={c?.linkedin_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-sky-700 hover:bg-sky-600 text-white rounded-lg text-xs font-semibold transition-colors"
+                        >
+                          <LinkIcon className="w-3 h-3" />
+                          <span>LinkedIn</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+
+                      {/* TikTok */}
+                      {c?.tiktok_url && (
+                        <a
+                          href={c?.tiktok_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-slate-900 border border-slate-700 text-white rounded-lg text-xs font-semibold transition-colors"
+                        >
+                          <span>TikTok</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+
+                      {/* YouTube */}
+                      {c?.youtube_url && (
+                        <a
+                          href={c?.youtube_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-600 hover:bg-red-500 text-white rounded-lg text-xs font-semibold transition-colors"
+                        >
+                          <span>YouTube</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
                   {/* Verification Status Switcher */}
                   <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-center justify-between">
                     <div>

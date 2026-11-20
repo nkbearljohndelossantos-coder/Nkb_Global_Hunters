@@ -4,8 +4,10 @@ import { query, getOne, execute } from '../db/index.js';
 import { authenticateToken } from '../middleware/auth.js';
 import { calculateLeadScore } from '../services/scoringEngine.js';
 import { logAudit } from '../services/auditService.js';
+import { WebInspectorConnector } from '../services/connectors/webInspectorConnector.js';
 
 const router = express.Router();
+const webInspector = new WebInspectorConnector();
 
 // List companies with filtering, sorting, and server-side pagination
 router.get('/', authenticateToken, async (req, res) => {
@@ -232,6 +234,113 @@ router.post('/', authenticateToken, async (req, res) => {
   } catch (err) {
     console.error('[Company Create Error]', err);
     res.status(500).json({ error: 'Failed to create company record.' });
+  }
+});
+
+// Live inspect website for WhatsApp, social channels & verified contact metadata
+router.post('/:id/inspect-channels', authenticateToken, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const company = await getOne('SELECT * FROM companies WHERE id = $1', [id]);
+    if (!company) {
+      return res.status(404).json({ error: 'Company not found' });
+    }
+
+    const targetUrl = req.body.website || company.official_website;
+    if (!targetUrl) {
+      return res.status(400).json({ error: 'No official website available to inspect.' });
+    }
+
+    const inspection = await webInspector.inspectDomain(targetUrl);
+    if (!inspection.isLive) {
+      return res.status(422).json({
+        error: `Could not reach website: ${inspection.error || 'Host unreachable'}`,
+        inspection
+      });
+    }
+
+    // Update channels
+    await execute(
+      `UPDATE companies
+       SET whatsapp_number = COALESCE($1, whatsapp_number),
+           whatsapp_url = COALESCE($2, whatsapp_url),
+           instagram_url = COALESCE($3, instagram_url),
+           facebook_url = COALESCE($4, facebook_url),
+           linkedin_url = COALESCE($5, linkedin_url),
+           tiktok_url = COALESCE($6, tiktok_url),
+           youtube_url = COALESCE($7, youtube_url),
+           updated_at = CURRENT_TIMESTAMP
+       WHERE id = $8`,
+      [
+        inspection.whatsappNumber || null,
+        inspection.whatsappUrl || null,
+        inspection.instagramUrl || null,
+        inspection.facebookUrl || null,
+        inspection.linkedinUrl || null,
+        inspection.tiktokUrl || null,
+        inspection.youtubeUrl || null,
+        id
+      ]
+    );
+
+    // If emails were discovered, add general contact if no contact exists yet
+    if (inspection.publicEmails && inspection.publicEmails.length > 0) {
+      const email = inspection.publicEmails[0];
+      const existing = await getOne(
+        'SELECT id FROM business_contacts WHERE company_id = $1 AND LOWER(business_email) = LOWER($2)',
+        [id, email]
+      );
+      if (!existing) {
+        await execute(
+          `INSERT INTO business_contacts (
+            id, company_id, full_name, job_title, department, business_email,
+            phone_number, whatsapp_number, whatsapp_url, contact_status, evidence_source, notes
+          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`,
+          [
+            uuidv4(),
+            id,
+            'General Inquiries / Sales Sourcing',
+            'Sourcing & Procurement Inquiries',
+            'Procurement',
+            email,
+            inspection.phoneNumber || null,
+            inspection.whatsappNumber || null,
+            inspection.whatsappUrl || null,
+            'publicly_listed',
+            `Public Website Inspection: ${targetUrl}`,
+            `Extracted directly from public website on ${new Date().toLocaleDateString()}`
+          ]
+        );
+      }
+    }
+
+    await logAudit({
+      userId: req.user.id,
+      action: 'WEBSITE_CHANNELS_INSPECTED',
+      entityType: 'company',
+      entityId: id,
+      details: {
+        website: targetUrl,
+        whatsappFound: !!inspection.whatsappUrl,
+        socialsFound: {
+          instagram: !!inspection.instagramUrl,
+          facebook: !!inspection.facebookUrl,
+          linkedin: !!inspection.linkedinUrl,
+          tiktok: !!inspection.tiktokUrl,
+          youtube: !!inspection.youtubeUrl
+        }
+      }
+    });
+
+    const updated = await getOne('SELECT * FROM companies WHERE id = $1', [id]);
+    res.json({
+      success: true,
+      company: updated,
+      inspection
+    });
+  } catch (err) {
+    console.error('[Inspect Channels Error]', err);
+    res.status(500).json({ error: 'Failed to inspect website channels.' });
   }
 });
 

@@ -7,6 +7,10 @@ conn.on('ready', () => {
     cd /var/www/nkb-global-hunter
     git pull origin main
     git log -n 2 --oneline
+    pm2 restart nkb-global-hunter-api
+    sleep 2
+    pm2 status nkb-global-hunter-api
+    curl -s http://127.0.0.1:5100/api/health
   `;
 
   conn.exec(cmd, (err, stream) => {

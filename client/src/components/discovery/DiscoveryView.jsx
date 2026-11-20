@@ -17,7 +17,9 @@ import {
   Sparkles,
   MapPin,
   Mail,
-  Link as LinkIcon
+  Link as LinkIcon,
+  Phone,
+  MessageCircle
 } from 'lucide-react';
 import { apiRequest } from '../../services/api';
 
@@ -320,16 +322,63 @@ export function DiscoveryView({ onSelectCompany, onOpenManualModal, initialMode 
                             </p>
                           )}
 
-                          <div className="flex items-center gap-3 mt-2 text-[11px]">
-                            {p.officialWebsite && (
+                          {/* Communication & Social Media Channels */}
+                          <div className="flex flex-wrap items-center gap-2 mt-2.5">
+                            {(p.whatsappUrl || p.whatsappNumber) && (
                               <a
-                                href={p.officialWebsite}
+                                href={p.whatsappUrl || `https://wa.me/${p.whatsappNumber.replace(/[^0-9]/g, '')}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-amber-600 hover:text-amber-700 inline-flex items-center gap-1 font-mono"
+                                className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md text-[11px] font-bold shadow-xs transition-colors"
                               >
-                                <span>{p.officialWebsite.replace(/^https?:\/\//, '')}</span>
-                                <ExternalLink className="w-3 h-3" />
+                                <Phone className="w-3 h-3" />
+                                <span>WhatsApp: {p.whatsappNumber || 'Chat'}</span>
+                              </a>
+                            )}
+
+                            {p.instagramUrl && (
+                              <a
+                                href={p.instagramUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2 py-0.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-md text-[11px] font-semibold hover:opacity-90 transition-opacity"
+                              >
+                                <span>Instagram</span>
+                                <ExternalLink className="w-2.5 h-2.5" />
+                              </a>
+                            )}
+
+                            {p.facebookUrl && (
+                              <a
+                                href={p.facebookUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-600 text-white rounded-md text-[11px] font-semibold hover:bg-blue-700 transition-colors"
+                              >
+                                <span>Facebook</span>
+                                <ExternalLink className="w-2.5 h-2.5" />
+                              </a>
+                            )}
+
+                            {p.tiktokUrl && (
+                              <a
+                                href={p.tiktokUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-900 text-white rounded-md text-[11px] font-semibold hover:bg-slate-800 transition-colors"
+                              >
+                                <span>TikTok</span>
+                                <ExternalLink className="w-2.5 h-2.5" />
+                              </a>
+                            )}
+
+                            {p.businessEmail && (
+                              <a
+                                href={`mailto:${p.businessEmail}`}
+                                className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 text-amber-800 border border-amber-200 rounded-md text-[11px] font-medium hover:bg-amber-100 transition-colors"
+                              >
+                                <Mail className="w-3 h-3 text-amber-600" />
+                                <span>{p.businessEmail}</span>
                               </a>
                             )}
 
@@ -338,16 +387,28 @@ export function DiscoveryView({ onSelectCompany, onOpenManualModal, initialMode 
                                 href={p.linkedinUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-indigo-600 hover:text-indigo-700 inline-flex items-center gap-1"
+                                className="inline-flex items-center gap-1 px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded-md text-[11px] font-medium hover:bg-indigo-100 transition-colors"
                               >
-                                <LinkIcon className="w-3 h-3" />
-                                <span>Public Profile / Evidence</span>
+                                <LinkIcon className="w-3 h-3 text-indigo-500" />
+                                <span>LinkedIn / Evidence</span>
                               </a>
                             )}
 
-                            <span className="text-slate-400 italic">
-                              Source: {p.evidenceSource}
-                            </span>
+                            {p.officialWebsite && (
+                              <a
+                                href={p.officialWebsite}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-slate-500 hover:text-slate-700 inline-flex items-center gap-1 font-mono text-[11px] ml-1"
+                              >
+                                <span>{p.officialWebsite.replace(/^https?:\/\//, '')}</span>
+                                <ExternalLink className="w-2.5 h-2.5" />
+                              </a>
+                            )}
+                          </div>
+
+                          <div className="mt-1.5 text-[10px] text-slate-400 italic">
+                            Source: {p.evidenceSource}
                           </div>
                         </div>
                       </div>
@@ -540,15 +601,53 @@ export function DiscoveryView({ onSelectCompany, onOpenManualModal, initialMode 
                         </td>
                         <td className="py-3 px-4">
                           {c.official_website ? (
-                            <a
-                              href={c.official_website}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-amber-600 hover:text-amber-700 hover:underline inline-flex items-center gap-1 font-mono text-[11px]"
-                            >
-                              <span>{c.domain || 'Visit Web'}</span>
-                              <ExternalLink className="w-3 h-3" />
-                            </a>
+                            <div className="space-y-1">
+                              <a
+                                href={c.official_website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-amber-600 hover:text-amber-700 hover:underline inline-flex items-center gap-1 font-mono text-[11px]"
+                              >
+                                <span>{c.domain || 'Visit Web'}</span>
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                              {(c.whatsapp_url || c.whatsapp_number) && (
+                                <div>
+                                  <a
+                                    href={c.whatsapp_url || `https://wa.me/${c.whatsapp_number.replace(/[^0-9]/g, '')}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-[10px] font-bold shadow-xs"
+                                    title={`Chat on WhatsApp: ${c.whatsapp_number || ''}`}
+                                  >
+                                    <Phone className="w-2.5 h-2.5" />
+                                    <span>WhatsApp</span>
+                                  </a>
+                                </div>
+                              )}
+                              <div className="flex items-center gap-1.5 mt-0.5">
+                                {c.instagram_url && (
+                                  <a href={c.instagram_url} target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 text-[10px] font-semibold" title="Instagram">
+                                    IG
+                                  </a>
+                                )}
+                                {c.facebook_url && (
+                                  <a href={c.facebook_url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 text-[10px] font-semibold" title="Facebook">
+                                    FB
+                                  </a>
+                                )}
+                                {c.linkedin_url && (
+                                  <a href={c.linkedin_url} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 text-[10px] font-semibold" title="LinkedIn">
+                                    LI
+                                  </a>
+                                )}
+                                {c.tiktok_url && (
+                                  <a href={c.tiktok_url} target="_blank" rel="noopener noreferrer" className="text-slate-800 hover:text-black text-[10px] font-semibold" title="TikTok">
+                                    TT
+                                  </a>
+                                )}
+                              </div>
+                            </div>
                           ) : (
                             <span className="text-slate-400 italic">Unavailable</span>
                           )}

@@ -36,7 +36,14 @@ export class BaseConnector {
       nkbServiceFit: item.nkbServiceFit || 'Cosmetics OEM/ODM',
       sourceAttribution: item.sourceAttribution || `Retrieved via ${this.name}`,
       confidenceLevel: item.confidenceLevel || 'medium',
-      rawSourceUrl: item.rawSourceUrl || null
+      rawSourceUrl: item.rawSourceUrl || null,
+      whatsappNumber: item.whatsappNumber || null,
+      whatsappUrl: item.whatsappUrl || null,
+      instagramUrl: item.instagramUrl || null,
+      facebookUrl: item.facebookUrl || null,
+      linkedinUrl: item.linkedinUrl || null,
+      tiktokUrl: item.tiktokUrl || null,
+      youtubeUrl: item.youtubeUrl || null
     };
   }
 }

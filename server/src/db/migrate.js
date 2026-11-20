@@ -35,6 +35,30 @@ export async function runMigrations() {
 
   console.log('[Migration] Schema verified.');
 
+  // Schema Extensions: Safe additions for WhatsApp & Social Media channels
+  const extensions = [
+    { table: 'companies', column: 'whatsapp_number', type: 'VARCHAR(50)' },
+    { table: 'companies', column: 'whatsapp_url', type: 'TEXT' },
+    { table: 'companies', column: 'instagram_url', type: 'TEXT' },
+    { table: 'companies', column: 'facebook_url', type: 'TEXT' },
+    { table: 'companies', column: 'linkedin_url', type: 'TEXT' },
+    { table: 'companies', column: 'tiktok_url', type: 'TEXT' },
+    { table: 'companies', column: 'youtube_url', type: 'TEXT' },
+    { table: 'business_contacts', column: 'whatsapp_number', type: 'VARCHAR(50)' },
+    { table: 'business_contacts', column: 'whatsapp_url', type: 'TEXT' },
+    { table: 'business_contacts', column: 'instagram_url', type: 'TEXT' },
+    { table: 'business_contacts', column: 'facebook_url', type: 'TEXT' },
+    { table: 'business_contacts', column: 'tiktok_url', type: 'TEXT' }
+  ];
+
+  for (const ext of extensions) {
+    try {
+      await execute(`ALTER TABLE ${ext.table} ADD COLUMN ${ext.column} ${ext.type}`);
+    } catch (err) {
+      // Column already exists
+    }
+  }
+
   // Seed default roles
   const defaultRoles = [
     { id: 'role_admin', name: 'Administrator', description: 'Full system configuration, user administration, and audit access' },

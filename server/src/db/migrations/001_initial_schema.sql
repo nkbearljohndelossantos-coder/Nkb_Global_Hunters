@@ -89,6 +89,13 @@ CREATE TABLE IF NOT EXISTS companies (
   verification_status VARCHAR(50) DEFAULT 'unverified', -- 'unverified', 'pending_research', 'verified', 'disqualified'
   confidence_level VARCHAR(30) DEFAULT 'medium', -- 'high', 'medium', 'low'
   source_attribution TEXT NOT NULL,
+  whatsapp_number VARCHAR(50),
+  whatsapp_url TEXT,
+  instagram_url TEXT,
+  facebook_url TEXT,
+  linkedin_url TEXT,
+  tiktok_url TEXT,
+  youtube_url TEXT,
   first_discovered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   last_researched_at TIMESTAMP,
   is_archived INTEGER DEFAULT 0,
@@ -167,6 +174,11 @@ CREATE TABLE IF NOT EXISTS business_contacts (
   department VARCHAR(100), -- 'Procurement', 'Sourcing', 'Supply Chain', 'Executive', 'Product Dev'
   business_email VARCHAR(255),
   phone_number VARCHAR(100),
+  whatsapp_number VARCHAR(50),
+  whatsapp_url TEXT,
+  instagram_url TEXT,
+  facebook_url TEXT,
+  tiktok_url TEXT,
   linkedin_url TEXT,
   contact_status VARCHAR(50) DEFAULT 'unverified', -- 'verified', 'publicly_listed', 'unverified', 'invalid', 'not_available'
   evidence_source TEXT NOT NULL,
