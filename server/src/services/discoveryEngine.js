@@ -67,7 +67,7 @@ export class DiscoveryEngine {
       totalFound: discovered.length + duplicates.length,
       newlyDiscovered: discovered.length,
       duplicatesDetected: duplicates.length,
-      companies: discovered
+      companies: [...discovered, ...duplicates]
     };
   }
 
@@ -84,9 +84,31 @@ export class DiscoveryEngine {
     }
 
     if (existing) {
-      // Update last research date
-      await execute('UPDATE companies SET last_researched_at = CURRENT_TIMESTAMP WHERE id = $1', [existing.id]);
-      return { isNew: false, company: existing };
+      // Update last research date and enrich any newly available WhatsApp / social channels
+      await execute(
+        `UPDATE companies 
+         SET last_researched_at = CURRENT_TIMESTAMP,
+             whatsapp_number = COALESCE($1, whatsapp_number),
+             whatsapp_url = COALESCE($2, whatsapp_url),
+             instagram_url = COALESCE($3, instagram_url),
+             facebook_url = COALESCE($4, facebook_url),
+             linkedin_url = COALESCE($5, linkedin_url),
+             tiktok_url = COALESCE($6, tiktok_url),
+             youtube_url = COALESCE($7, youtube_url)
+         WHERE id = $8`,
+        [
+          item.whatsappNumber || null,
+          item.whatsappUrl || null,
+          item.instagramUrl || null,
+          item.facebookUrl || null,
+          item.linkedinUrl || null,
+          item.tiktokUrl || null,
+          item.youtubeUrl || null,
+          existing.id
+        ]
+      );
+      const updated = await getOne('SELECT * FROM companies WHERE id = $1', [existing.id]);
+      return { isNew: false, company: updated || existing };
     }
 
     // Insert new verified record
